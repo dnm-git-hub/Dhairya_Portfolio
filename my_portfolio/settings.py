@@ -38,6 +38,9 @@ DEBUG = True
 # settings.py
 ALLOWED_HOSTS = ['dhairya-portfolio.onrender.com', '127.0.0.1', 'localhost']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://dhairya-portfolio.onrender.com',
+]
 
 # Application definition
 
