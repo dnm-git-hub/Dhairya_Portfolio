@@ -33,10 +33,10 @@ DATABASES = {
 SECRET_KEY = "django-insecure-uu&l1*ol$(9wj&s!wayv@dow0_g%!%xo5dzg4p9ld=txl&=)u6"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # settings.py
-ALLOWED_HOSTS = ['dhairya-portfolio.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://dhairya-portfolio.onrender.com',
