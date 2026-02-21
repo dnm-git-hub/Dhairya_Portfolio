@@ -739,6 +739,30 @@
             backdrop-filter: blur(10px); /* Adds a glass effect over the moving lights */
             background: rgba(22, 27, 34, 0.8) !important; /* Semi-transparent background */
         }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media screen and (max-width: 768px) {
+            nav {
+                padding: 15px 5%; /* Reduce side padding from 10% to 5% to gain space */
+                flex-direction: column; /* Stack the logo on top of the links */
+                gap: 15px; /* Add a little space between the logo and the links */
+            }
+
+            .nav-links {
+                gap: 15px; /* Shrink the large 30px gap to 15px */
+                justify-content: center; /* Center the links nicely */
+                flex-wrap: wrap; /* If links STILL don't fit, let them wrap to a new line */
+            }
+
+            .btn-resume {
+                padding: 6px 15px; /* Make the button slightly smaller so it fits */
+                font-size: 0.85rem;
+            }
+
+            body {
+                padding-top: 130px; /* Push the main page down a bit more since the nav bar is now taller */
+            }
+        }
     </style>
 </head>
 
