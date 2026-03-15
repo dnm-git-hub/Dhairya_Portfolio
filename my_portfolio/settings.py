@@ -149,8 +149,12 @@ CLOUDINARY_STORAGE = {
 #DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # The modern Django 5 way to handle cloud storage
 # The modern Django 5 way to handle cloud storage
+# The modern Django 5 way to handle cloud storage
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    }
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
 }
