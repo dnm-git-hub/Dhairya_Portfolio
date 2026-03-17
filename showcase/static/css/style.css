@@ -744,3 +744,37 @@ footer {
         justify-content: center;
     }
 }
+
+/* --- PIKACHU EASTER EGG STYLES --- */
+#pikachu-container {
+    display: none;
+    position: fixed;
+    bottom: -200px; /* Hides him below the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9998;
+    transition: bottom 0.4s ease-out; /* Smooth pop-up animation */
+}
+
+/* This class gets added by JavaScript to trigger the pop-up */
+#pikachu-container.pika-show {
+    bottom: 0px; 
+}
+
+#thunderbolt-flash {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fffb00; /* Electric Yellow */
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out; /* Fast, snappy flash */
+}
+
+/* This class gets added by JavaScript to trigger the flash */
+#thunderbolt-flash.flash-active {
+    opacity: 1;
+}
