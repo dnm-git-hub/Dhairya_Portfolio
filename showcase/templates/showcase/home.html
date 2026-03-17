@@ -310,14 +310,19 @@
     <script src="{% static 'js/script.js' %}"></script>
 
     <div id="pikachu-container" style="display: none; position: fixed; bottom: -200px; left: 50%; transform: translateX(-50%); z-index: 9998; transition: bottom 0.4s ease-out; pointer-events: none;">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/25.gif" alt="Pikachu" style="width: 150px; filter: drop-shadow(0 0 10px rgba(255,255,0,0.8));">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/25.gif" alt="Pikachu" style="width: 150px; filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));">
     </div>
 
-    <div id="thunderbolt-flash" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,215,0,0.8) 100%); z-index: 9999; opacity: 0; transition: opacity 0.1s ease-in-out; pointer-events: none;">
-        <svg style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;" preserveAspectRatio="none" viewBox="0 0 100 100">
-            <path d="M 55 0 L 25 50 L 45 50 L 15 100 L 75 45 L 50 45 L 70 0 Z" fill="#ffffff" filter="drop-shadow(0px 0px 8px #fffb00)"></path>
-            <path d="M 30 0 L 10 40 L 25 40 L 0 90 L 45 35 L 25 35 L 40 0 Z" fill="#ffffff" opacity="0.8"></path>
-            <path d="M 80 0 L 60 45 L 75 45 L 45 95 L 95 40 L 70 40 L 90 0 Z" fill="#ffffff" opacity="0.8"></path>
+    <div id="thunderbolt-flash" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: transparent; z-index: 9999; opacity: 0; transition: opacity 0.1s ease-in-out; pointer-events: none;">
+        
+        <svg style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; filter: drop-shadow(0px 0px 12px #ffffff);" preserveAspectRatio="none" viewBox="0 0 100 100">
+            
+            <path d="M 50 100 L 20 60 L 35 55 L 0 10 L 15 10 L 40 50 L 30 55 Z" fill="#ffde00" stroke="#ffffff" stroke-width="0.5"></path>
+            
+            <path d="M 50 100 L 40 50 L 55 45 L 45 0 L 60 0 L 65 40 L 50 45 Z" fill="#ffde00" stroke="#ffffff" stroke-width="0.8"></path>
+            
+            <path d="M 50 100 L 80 60 L 65 55 L 100 10 L 85 10 L 60 50 L 70 55 Z" fill="#ffde00" stroke="#ffffff" stroke-width="0.5"></path>
+            
         </svg>
     </div>
 </body>
