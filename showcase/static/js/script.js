@@ -59,6 +59,10 @@ function closeContact() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    
+    // ==========================================
+    // 1. PIKACHU EASTER EGG LOGIC
+    // ==========================================
     const skillsLink = document.querySelector('a[href="#skills"]'); 
     const targetSection = document.getElementById('skills'); 
     const pikaContainer = document.getElementById('pikachu-container');
@@ -98,4 +102,50 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 1100); 
         });
     }
-});
+
+    // ==========================================
+    // 2. CHARIZARD EASTER EGG LOGIC
+    // ==========================================
+    const expLink = document.querySelector('a[href="#experience"]'); 
+    const expSection = document.getElementById('experience'); 
+    const charizardContainer = document.getElementById('charizard-container');
+    const flameOverlay = document.getElementById('flamethrower-overlay');
+
+    if (expLink && expSection && charizardContainer && flameOverlay) {
+        expLink.addEventListener('click', function(e) {
+            e.preventDefault(); 
+
+            // Phase 1: Enter the Dragon (Swoops in from top right)
+            charizardContainer.style.display = 'block';
+            void charizardContainer.offsetWidth; // Force browser reflow
+            charizardContainer.style.top = '10px'; 
+            charizardContainer.style.right = '20px'; 
+
+            // Phase 2: Flamethrower!
+            setTimeout(() => {
+                flameOverlay.style.display = 'block';
+                void flameOverlay.offsetWidth;
+                flameOverlay.style.opacity = '1';
+            }, 400); // Wait for Charizard to fly in
+
+            // Phase 3: The Sneaky Scroll
+            setTimeout(() => {
+                expSection.scrollIntoView({ behavior: 'instant' });
+            }, 700); 
+
+            // Phase 4: Fly away and clear smoke
+            setTimeout(() => {
+                flameOverlay.style.opacity = '0';
+                charizardContainer.style.top = '-300px'; 
+                charizardContainer.style.right = '-300px'; 
+                
+                // Hide completely
+                setTimeout(() => {
+                    flameOverlay.style.display = 'none';
+                    charizardContainer.style.display = 'none';
+                }, 400);
+            }, 1200); 
+        });
+    }
+
+}); // <-- End of DOMContentLoaded
