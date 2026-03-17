@@ -149,46 +149,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ==========================================
-    // 3. PIPLUP EASTER EGG LOGIC
+    // 3. PRIMARINA EASTER EGG LOGIC
     // ==========================================
     const projLink = document.querySelector('a[href="#projects"]'); 
     const projSection = document.getElementById('projects'); 
-    const piplupContainer = document.getElementById('piplup-container');
+    const primarinaContainer = document.getElementById('primarina-container');
     const waterOverlay = document.getElementById('hydropump-overlay');
 
-    if (projLink && projSection && piplupContainer && waterOverlay) {
+    if (projLink && projSection && primarinaContainer && waterOverlay) {
         projLink.addEventListener('click', function(e) {
             e.preventDefault(); 
 
-            // Phase 1: Piplup slides in from bottom-left
-            piplupContainer.style.display = 'block';
-            void piplupContainer.offsetWidth; 
-            piplupContainer.style.bottom = '20px'; 
-            piplupContainer.style.left = '20px'; 
+            // Phase 1: Primarina enters from bottom-left
+            primarinaContainer.style.display = 'block';
+            void primarinaContainer.offsetWidth; 
+            primarinaContainer.style.bottom = '10px'; 
+            primarinaContainer.style.left = '10px'; 
 
             // Phase 2: HYDRO PUMP!
             setTimeout(() => {
                 waterOverlay.style.display = 'block';
                 void waterOverlay.offsetWidth;
                 waterOverlay.style.opacity = '1';
-            }, 400); 
+            }, 500); 
 
             // Phase 3: The Sneaky Scroll
             setTimeout(() => {
                 projSection.scrollIntoView({ behavior: 'instant' });
-            }, 700); 
+            }, 800); 
 
-            // Phase 4: Exit
+            // Phase 4: Exit stage left
             setTimeout(() => {
                 waterOverlay.style.opacity = '0';
-                piplupContainer.style.bottom = '-300px'; 
-                piplupContainer.style.left = '-300px'; 
+                primarinaContainer.style.bottom = '-400px'; 
+                primarinaContainer.style.left = '-400px'; 
                 
                 setTimeout(() => {
                     waterOverlay.style.display = 'none';
-                    piplupContainer.style.display = 'none';
-                }, 400);
-            }, 1200); 
+                    primarinaContainer.style.display = 'none';
+                }, 500);
+            }, 1300); 
         });
     }
 
