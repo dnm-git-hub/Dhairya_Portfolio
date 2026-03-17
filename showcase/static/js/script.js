@@ -57,3 +57,50 @@ function closeContact() {
     document.getElementById("contactModal").style.display = "none";
     document.body.style.overflow = "auto";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Find the elements
+    const skillsLink = document.querySelector('a[href="#skills"]'); // Ensure your link is href="#skills"
+    const targetSection = document.getElementById('skills');        // Ensure your section is id="skills"
+    const pikaContainer = document.getElementById('pikachu-container');
+    const flashOverlay = document.getElementById('thunderbolt-flash');
+
+    // 2. Only run if the elements actually exist on the page
+    if (skillsLink && targetSection && pikaContainer && flashOverlay) {
+        
+        skillsLink.addEventListener('click', function(e) {
+            e.preventDefault(); // Stop the boring instant jump
+
+            // Phase 1: I Choose You! (Pikachu pops up)
+            pikaContainer.style.display = 'block';
+            setTimeout(() => {
+                pikaContainer.classList.add('pika-show'); 
+            }, 50);
+
+            // Phase 2: THUNDERBOLT! (Screen flashes bright yellow)
+            setTimeout(() => {
+                flashOverlay.style.display = 'block';
+                setTimeout(() => {
+                    flashOverlay.classList.add('flash-active');
+                }, 50);
+            }, 600); // Wait for Pikachu to appear first
+
+            // Phase 3: The Sneaky Scroll (Scroll while user is blinded)
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'instant' });
+            }, 800); 
+
+            // Phase 4: The Smoke Clears (Fade flash out and hide Pikachu)
+            setTimeout(() => {
+                flashOverlay.classList.remove('flash-active');
+                pikaContainer.classList.remove('pika-show');
+
+                // Completely hide them from the page after fading finishes
+                setTimeout(() => {
+                    flashOverlay.style.display = 'none';
+                    pikaContainer.style.display = 'none';
+                }, 300);
+            }, 1200); 
+        });
+    }
+});
