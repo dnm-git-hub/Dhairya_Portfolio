@@ -148,4 +148,48 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // ==========================================
+    // 3. PIPLUP EASTER EGG LOGIC
+    // ==========================================
+    const projLink = document.querySelector('a[href="#projects"]'); 
+    const projSection = document.getElementById('projects'); 
+    const piplupContainer = document.getElementById('piplup-container');
+    const waterOverlay = document.getElementById('hydropump-overlay');
+
+    if (projLink && projSection && piplupContainer && waterOverlay) {
+        projLink.addEventListener('click', function(e) {
+            e.preventDefault(); 
+
+            // Phase 1: Piplup slides in from bottom-left
+            piplupContainer.style.display = 'block';
+            void piplupContainer.offsetWidth; 
+            piplupContainer.style.bottom = '20px'; 
+            piplupContainer.style.left = '20px'; 
+
+            // Phase 2: HYDRO PUMP!
+            setTimeout(() => {
+                waterOverlay.style.display = 'block';
+                void waterOverlay.offsetWidth;
+                waterOverlay.style.opacity = '1';
+            }, 400); 
+
+            // Phase 3: The Sneaky Scroll
+            setTimeout(() => {
+                projSection.scrollIntoView({ behavior: 'instant' });
+            }, 700); 
+
+            // Phase 4: Exit
+            setTimeout(() => {
+                waterOverlay.style.opacity = '0';
+                piplupContainer.style.bottom = '-300px'; 
+                piplupContainer.style.left = '-300px'; 
+                
+                setTimeout(() => {
+                    waterOverlay.style.display = 'none';
+                    piplupContainer.style.display = 'none';
+                }, 400);
+            }, 1200); 
+        });
+    }
+
 }); // <-- End of DOMContentLoaded
