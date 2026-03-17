@@ -149,44 +149,44 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ==========================================
-    // 3. MEGA GYARADOS EASTER EGG LOGIC
+    // 3. MILOTIC EASTER EGG LOGIC
     // ==========================================
     const projLink = document.querySelector('a[href="#projects"]'); 
     const projSection = document.getElementById('projects'); 
-    const gyaradosContainer = document.getElementById('gyarados-container');
+    const miloticContainer = document.getElementById('milotic-container');
     const waterOverlay = document.getElementById('hydropump-overlay');
 
-    if (projLink && projSection && gyaradosContainer && waterOverlay) {
+    if (projLink && projSection && miloticContainer && waterOverlay) {
         projLink.addEventListener('click', function(e) {
             e.preventDefault(); 
 
-            // Phase 1: Mega Gyarados emerges
-            gyaradosContainer.style.display = 'block';
-            void gyaradosContainer.offsetWidth; 
-            gyaradosContainer.style.bottom = '-20px'; 
-            gyaradosContainer.style.left = '-30px'; 
+            // Phase 1: Milotic enters (Higher up so she isn't cut off)
+            miloticContainer.style.display = 'block';
+            void miloticContainer.offsetWidth; 
+            miloticContainer.style.bottom = '10px'; 
+            miloticContainer.style.left = '10px'; 
 
             // Phase 2: HYDRO PUMP!
             setTimeout(() => {
                 waterOverlay.style.display = 'block';
                 void waterOverlay.offsetWidth;
                 waterOverlay.style.opacity = '1';
-            }, 500); 
+            }, 450); 
 
             // Phase 3: Scroll
             setTimeout(() => {
                 projSection.scrollIntoView({ behavior: 'instant' });
-            }, 850); 
+            }, 800); 
 
             // Phase 4: Retreat
             setTimeout(() => {
                 waterOverlay.style.opacity = '0';
-                gyaradosContainer.style.bottom = '-500px'; 
-                gyaradosContainer.style.left = '-500px'; 
+                miloticContainer.style.bottom = '-500px'; 
+                miloticContainer.style.left = '-500px'; 
                 
                 setTimeout(() => {
                     waterOverlay.style.display = 'none';
-                    gyaradosContainer.style.display = 'none';
+                    miloticContainer.style.display = 'none';
                 }, 500);
             }, 1400); 
         });
