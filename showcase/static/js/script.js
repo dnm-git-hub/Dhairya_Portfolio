@@ -59,48 +59,43 @@ function closeContact() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Find the elements
-    const skillsLink = document.querySelector('a[href="#skills"]'); // Ensure your link is href="#skills"
-    const targetSection = document.getElementById('skills');        // Ensure your section is id="skills"
+    const skillsLink = document.querySelector('a[href="#skills"]'); 
+    const targetSection = document.getElementById('skills'); 
     const pikaContainer = document.getElementById('pikachu-container');
     const flashOverlay = document.getElementById('thunderbolt-flash');
 
-    // 2. Only run if the elements actually exist on the page
     if (skillsLink && targetSection && pikaContainer && flashOverlay) {
-        
         skillsLink.addEventListener('click', function(e) {
-            e.preventDefault(); // Stop the boring instant jump
+            e.preventDefault(); 
 
-            // Phase 1: I Choose You! (Pikachu pops up)
+            // Phase 1: Show container, force browser reflow, then pop up!
             pikaContainer.style.display = 'block';
-            setTimeout(() => {
-                pikaContainer.classList.add('pika-show'); 
-            }, 50);
+            void pikaContainer.offsetWidth; // This forces the browser to wake up and render the animation
+            pikaContainer.style.bottom = '0px'; 
 
-            // Phase 2: THUNDERBOLT! (Screen flashes bright yellow)
+            // Phase 2: Thunderbolt Flash
             setTimeout(() => {
                 flashOverlay.style.display = 'block';
-                setTimeout(() => {
-                    flashOverlay.classList.add('flash-active');
-                }, 50);
-            }, 600); // Wait for Pikachu to appear first
+                void flashOverlay.offsetWidth;
+                flashOverlay.style.opacity = '1';
+            }, 500); // Trigger flash just as Pikachu finishes popping up
 
-            // Phase 3: The Sneaky Scroll (Scroll while user is blinded)
+            // Phase 3: The Sneaky Scroll
             setTimeout(() => {
                 targetSection.scrollIntoView({ behavior: 'instant' });
-            }, 800); 
+            }, 700); 
 
-            // Phase 4: The Smoke Clears (Fade flash out and hide Pikachu)
+            // Phase 4: Clean up
             setTimeout(() => {
-                flashOverlay.classList.remove('flash-active');
-                pikaContainer.classList.remove('pika-show');
-
-                // Completely hide them from the page after fading finishes
+                flashOverlay.style.opacity = '0';
+                pikaContainer.style.bottom = '-200px'; 
+                
+                // Hide them completely after fade out
                 setTimeout(() => {
                     flashOverlay.style.display = 'none';
                     pikaContainer.style.display = 'none';
-                }, 300);
-            }, 1200); 
+                }, 400);
+            }, 1100); 
         });
     }
 });
