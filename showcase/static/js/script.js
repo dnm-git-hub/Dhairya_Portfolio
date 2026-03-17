@@ -149,22 +149,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ==========================================
-    // 3. PRIMARINA EASTER EGG LOGIC
+    // 3. MEGA GYARADOS EASTER EGG LOGIC
     // ==========================================
     const projLink = document.querySelector('a[href="#projects"]'); 
     const projSection = document.getElementById('projects'); 
-    const primarinaContainer = document.getElementById('primarina-container');
+    const gyaradosContainer = document.getElementById('gyarados-container');
     const waterOverlay = document.getElementById('hydropump-overlay');
 
-    if (projLink && projSection && primarinaContainer && waterOverlay) {
+    if (projLink && projSection && gyaradosContainer && waterOverlay) {
         projLink.addEventListener('click', function(e) {
             e.preventDefault(); 
 
-            // Phase 1: Primarina enters from bottom-left
-            primarinaContainer.style.display = 'block';
-            void primarinaContainer.offsetWidth; 
-            primarinaContainer.style.bottom = '10px'; 
-            primarinaContainer.style.left = '10px'; 
+            // Phase 1: Mega Gyarados emerges
+            gyaradosContainer.style.display = 'block';
+            void gyaradosContainer.offsetWidth; 
+            gyaradosContainer.style.bottom = '-20px'; 
+            gyaradosContainer.style.left = '-30px'; 
 
             // Phase 2: HYDRO PUMP!
             setTimeout(() => {
@@ -173,22 +173,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 waterOverlay.style.opacity = '1';
             }, 500); 
 
-            // Phase 3: The Sneaky Scroll
+            // Phase 3: Scroll
             setTimeout(() => {
                 projSection.scrollIntoView({ behavior: 'instant' });
-            }, 800); 
+            }, 850); 
 
-            // Phase 4: Exit stage left
+            // Phase 4: Retreat
             setTimeout(() => {
                 waterOverlay.style.opacity = '0';
-                primarinaContainer.style.bottom = '-400px'; 
-                primarinaContainer.style.left = '-400px'; 
+                gyaradosContainer.style.bottom = '-500px'; 
+                gyaradosContainer.style.left = '-500px'; 
                 
                 setTimeout(() => {
                     waterOverlay.style.display = 'none';
-                    primarinaContainer.style.display = 'none';
+                    gyaradosContainer.style.display = 'none';
                 }, 500);
-            }, 1300); 
+            }, 1400); 
         });
     }
 
