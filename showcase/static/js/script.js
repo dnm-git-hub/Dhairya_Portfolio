@@ -121,25 +121,25 @@ document.addEventListener("DOMContentLoaded", function() {
             charizardContainer.style.top = '10px'; 
             charizardContainer.style.right = '20px'; 
 
-            // Phase 2: Flamethrower!
+            // Phase 2: Flamethrower! (Triggers as Charizard finsihes flying in)
             setTimeout(() => {
                 flameOverlay.style.display = 'block';
                 void flameOverlay.offsetWidth;
                 flameOverlay.style.opacity = '1';
-            }, 400); // Wait for Charizard to fly in
+            }, 400); 
 
-            // Phase 3: The Sneaky Scroll
+            // Phase 3: The Sneaky Scroll (Experience section is visible when fire clears)
             setTimeout(() => {
                 expSection.scrollIntoView({ behavior: 'instant' });
             }, 700); 
 
-            // Phase 4: Fly away and clear smoke
+            // Phase 4: Fly Away (Charizard retreats and flash fades)
             setTimeout(() => {
                 flameOverlay.style.opacity = '0';
                 charizardContainer.style.top = '-300px'; 
                 charizardContainer.style.right = '-300px'; 
                 
-                // Hide completely
+                // Hide completely to keep the DOM clean
                 setTimeout(() => {
                     flameOverlay.style.display = 'none';
                     charizardContainer.style.display = 'none';
