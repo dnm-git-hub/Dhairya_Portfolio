@@ -778,3 +778,24 @@ footer {
 #thunderbolt-flash.flash-active {
     opacity: 1;
 }
+
+/* Custom Card Container for About & Experience consistency */
+.info-card {
+    background-color: #161b22; /* The dark slate background */
+    border: 1px solid #30363d; /* Subtle border for depth */
+    border-radius: 12px;       /* Smooth rounded corners */
+    padding: 1.5rem 2rem;      /* Breathing room inside the box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow to lift it off the background */
+    margin-top: 1rem;
+}
+
+/* Ensure the text inside the card has good line spacing */
+.info-card p {
+    line-height: 1.8;
+    color: #c9d1d9; /* Soft white/grey for readability */
+}
+
+/* Remove bottom margin from the last paragraph so the box doesn't look uneven */
+.info-card p:last-child {
+    margin-bottom: 0;
+}
